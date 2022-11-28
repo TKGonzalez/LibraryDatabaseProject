@@ -1,0 +1,46 @@
+<?php
+include 'main.php';
+
+check_loggedin($pdo);
+
+// $transactions = $pdo->query('SELECT * FROM Transaction')->fetchAll();
+
+// if (isset($_POST['submit'])) {
+//     echo "<br><br><>";
+//     var_dump($_POST['email']);
+// }
+?>
+
+<?=template_admin_header('Reports', 'reports')?>
+
+<h2>Return Report Builder</h2>
+
+<div class="content-block">
+
+<form action="transaction-report.php" method="post" class="form responsive-width-100">
+        <label for="psid">PSID</label>
+        <input type="number" id="psid" name="psid" placeholder="<Empty>">
+
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" placeholder="<Empty>">
+
+        <label for="itemType">Item Category</label>
+        <select id="itemType" name="itemType">
+            <option value="ALL" selected>All</option>
+            <option value="BOOK">Book</option>
+            <option value="DVD">DVD</option>
+            <option value="LAPTOP">Laptop</option>
+        </select>
+
+        <div class="submit-btns">
+            <input type="submit" name="submit" value="Build Report">
+        </div>
+
+    </form>
+
+
+<!-- <?php var_dump($transactions[0]['TransactionType']); ?> -->
+
+</div>
+
+<?=template_admin_footer()?>
